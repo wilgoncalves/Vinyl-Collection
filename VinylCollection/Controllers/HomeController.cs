@@ -15,6 +15,8 @@ namespace VinylCollection.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Title"] = "Home Page";
+            ViewData["Name"] = "My Vinyl Collection";
             return View();
         }
 
