@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using VinylCollection.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<VinylCollectionContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("VinylCollectionContext") ?? throw new InvalidOperationException("Connection string 'VinylCollectionContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
