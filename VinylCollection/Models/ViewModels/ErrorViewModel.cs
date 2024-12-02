@@ -1,4 +1,4 @@
-namespace VinylCollection.Models
+namespace VinylCollection.Models.ViewModels
 {
     public class ErrorViewModel
     {
