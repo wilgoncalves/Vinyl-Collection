@@ -14,6 +14,7 @@ namespace VinylCollection.Data
         {
         }
 
-        public DbSet<VinylCollection.Models.Title> Title { get; set; } = default!;
+        public DbSet<Title> Title { get; set; } = default!;
+        public DbSet<Artist> Artist { get; set; } = default!;
     }
 }
