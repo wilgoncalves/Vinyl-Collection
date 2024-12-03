@@ -12,6 +12,7 @@ builder.Services.AddDbContext<VinylCollectionContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<SeedingService>();
 
 var app = builder.Build();
 
@@ -29,6 +30,19 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapWhen(context =>
+{
+    var env = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+
+    if (env.IsDevelopment())
+    {
+        var seedingService = context.RequestServices.GetRequiredService<SeedingService>();
+        seedingService.Seed();
+    }
+
+    return false;
+}, app => { });
 
 app.MapControllerRoute(
     name: "default",
