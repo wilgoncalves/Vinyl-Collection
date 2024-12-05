@@ -30,8 +30,10 @@ namespace VinylCollection.Data
             Artist a4 = new Artist(4, "Robson Jorge e Lincoln Olivetti");
             Title t4 = new Title(4, "Robson Jorge e Lincoln Olivetti", 1982, a4);
 
+            Title t5 = new Title(5, "Batidão Tropical Vol. 1", 2021, a3);
+
             _context.Artist.AddRange(a1, a2, a3, a4);
-            _context.Title.AddRange(t1, t2, t3, t4);
+            _context.Title.AddRange(t1, t2, t3, t4, t5);
 
             _context.SaveChanges();
         }

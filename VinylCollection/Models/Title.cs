@@ -5,6 +5,7 @@
         public int Id { get; set; }
         public string? TitleName { get; set; }
         public int RecordedYear { get; set; }
+        public int ArtistId { get; set; }
         public Artist? Artist { get; set; }
 
         public Title()

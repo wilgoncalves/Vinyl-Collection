@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string? ArtistName { get; set; }
-        public ICollection<Title>? Titles { get; set; } = new List<Title>();
+        public ICollection<Title>? Titles { get; set; } 
 
         public Artist()
         {

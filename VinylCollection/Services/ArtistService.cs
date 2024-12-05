@@ -1,4 +1,5 @@
-﻿using VinylCollection.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using VinylCollection.Data;
 using VinylCollection.Models;
 
 namespace VinylCollection.Services
@@ -14,7 +15,8 @@ namespace VinylCollection.Services
 
         public List<Artist> FindAll()
         {
-            return _context.Artist.ToList();
+            return _context.Artist.Include(a => a.Titles).ToList() ?? new List<Artist>();
         }
+
     }
 }

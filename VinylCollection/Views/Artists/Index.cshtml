@@ -1,4 +1,4 @@
-﻿@model IEnumerable<VinylCollection.Models.Artist>
+﻿@model List<VinylCollection.Models.ViewModels.ArtistViewModel>
 
 @{
     ViewData["Title"] = "Artists";
@@ -10,7 +10,7 @@
     <thead>
         <tr class="table-secondary">
             <th scope="col">
-                @Html.DisplayNameFor(model => model.First().ArtistName)
+                Artist
             </th>
             <th scope="col">
                 Albums
