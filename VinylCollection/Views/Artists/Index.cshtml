@@ -1,7 +1,39 @@
-﻿@{
-    ViewData["Title"] = "Index";
+﻿@model IEnumerable<VinylCollection.Models.Artist>
+
+@{
+    ViewData["Title"] = "Artists";
 }
 
-<h2>Artists</h2>
+<h2>@ViewData["Title"]</h2>
 
-<p>Artists index page</p>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-secondary">
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.First().ArtistName)
+            </th>
+            <th scope="col">
+                Albums
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-secondary">
+                <td class="table-primary">
+                    @Html.DisplayFor(modelItem => item.ArtistName)
+                </td>
+                <td class ="table-primary">
+                    <ul>
+                        @foreach (var title in item.Titles!)
+                        {
+                            <li>@title</li>
+                        }
+                    </ul>
+                </td> 
+            </tr>
+        }
+    </tbody>
+</table>
+
