@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using VinylCollection.Data;
 using VinylCollection.Models;
+using VinylCollection.Services;
 
 namespace VinylCollection.Controllers
 {
     public class TitlesController : Controller
     {
         private readonly VinylCollectionContext _context;
+        private readonly ArtistService _artistService;
 
-        public TitlesController(VinylCollectionContext context)
+        public TitlesController(VinylCollectionContext context, ArtistService artistService)
         {
             _context = context;
+            _artistService = artistService;
         }
 
         // GET: Titles
